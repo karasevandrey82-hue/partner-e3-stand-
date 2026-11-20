@@ -51,7 +51,7 @@ No resizing, recompression, colour change, crop or longitude shift was applied.
 
 ---
 
-> **Update 2026-11-20, second commit (session with full network):** most files from "Waiting for download" are now downloaded directly from the primary addresses and are in this folder. See the section **«Загрузка 20.11 по заданию v2»** at the end of this file (exact URL, time, bytes, sha256 of original and output, pixels, projection). Ganymede PIA17901 did not open. Both Earth variants are kept: July topo (above, first commit) and June base 16k (task v2).
+> **Update 2026-11-20, second commit (session with full network):** most files from "Waiting for download" are now downloaded directly from the primary addresses and are in this folder. See the section **«Загрузка 20.11 по заданию v2»** at the end of this file (exact URL, time, bytes, sha256 of original and output, pixels, projection). Ganymede PIA17901 did not open. Saturn rings: 10 km optical-depth profiles from CORSS_8001 in `saturn_rings/`. Both Earth variants are kept: July topo (above, first commit) and June base 16k (task v2).
 
 ## Waiting for download (needs a session that can reach the primary sites)
 
@@ -120,7 +120,7 @@ Resizing rules:
 | 6 | — README | saturn_opal_2025a_README.txt | — | 1 625 | 31059e9f106905f1ca34c924e005c3094e7c33e94d19a1f5178fcb7f186ca3ca |
 | 7 | Сатурн, Cassini RGB | saturn_cassini_rgb.fits | 3601×1801×3, float32 | 77 829 120 | 32a62eca9b82255c7dd763ba0752cee1664ae73d5ec4d5d5260227deecd422af |
 | 7 | — метка PDS4 | saturn_cassini_rgb.xml | — | 10 595 | 0d1ab898d6811622688363c1fbe6ef4bd15541c8009a43ea5df6581f8e386a66 |
-| 8 | Кольца Сатурна | saturn_rings/ | — | — | см. раздел 8 |
+| 8 | Кольца Сатурна, профили τ 10 км | saturn_rings/CORSS_8001/… | 204 профиля | 943 МБ (413 файлов) | saturn_rings/SHA256SUMS.txt |
 | 9 | Уран, OPAL 2024a | uranus_opal_2024a.tif | 721×361 | 787 762 | 838dbf45072d4354425389d7c5869312185fd8df3d0d5ee526661b22db4c3c12 |
 | 9 | — README | uranus_opal_2024a_README.txt | — | 1 504 | 5f71cce6994ad0ea1f4c38034a6e722381618d0b5fb88ccc74ab77f551efbde5 |
 | 10 | Нептун, OPAL 2026b | neptune_opal.tif | 721×361 | 789 926 | 456bcf124957cb1f033654e746a9046e80c33840c49e05b25c11216c317b1473 |
@@ -164,7 +164,7 @@ README: https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hs
 - Cassini_ISS_RGB_Saturn_global_color_map_original.xml — 2026-11-20T08:19:58Z · 10 595 байт · sha256 0d1ab898…
 Оба положены как есть. Заголовок FITS: 3601×1801×3, float32 (BITPIX −32); LAT_C −90…90 шаг 0,1 (планетоцентрическая); LON_W от 360 до 0 шаг −0,1 (западная долгота); разрешение 161 км/пикс; фазовый угол 42,5°; съёмка 2011-08-11. Метка: Equirectangular, центральный меридиан 180°, Positive West. GDAL 3.8.4 этот FITS не открыл — читать astropy или по метке.
 
-**8. Кольца Сатурна** — https://pds-rings.seti.org/holdings/archives-volumes/CORSS_8xxx/CORSS_8001.tar.gz — см. раздел 8 ниже.
+**8. Кольца Сатурна** — см. раздел «8. Кольца Сатурна» ниже.
 
 **9. Уран, OPAL 2024a** — https://archive.stsci.edu/missions/hlsp/opal/cycle32/uranus/hlsp_opal_hst_wfc3-uvis_uranus-2024a_f657n-f547m-f467m_v1_globalmap.tif
 2026-11-20T08:19:59Z · 787 762 байт · sha256 838dbf45… · 721×361 RGB. Как есть.
@@ -198,7 +198,15 @@ README: https://archive.stsci.edu/missions/hlsp/opal/cycle33/neptune/hlsp_opal_h
 ## Разделы
 
 ### 8. Кольца Сатурна
-Загрузка ещё идёт (архив 6 142 435 253 байт > 100 МБ). По заданию в репозиторий пойдут только профили оптической толщины и их метки. Будет дописано следующим коммитом.
+Адрес: https://pds-rings.seti.org/holdings/archives-volumes/CORSS_8xxx/CORSS_8001.tar.gz
+2026-11-20T09:06:38Z (докачан с места обрыва) · 6 142 435 253 байт · sha256 ea3fc4f2b215761801a230db630d880de7d47c64fa21f9280264040cdc4ec44c · `gzip -t` пройден. 2986 записей в архиве.
+
+Архив больше 100 МБ, поэтому положено только это (структура папок архива сохранена, файлы не менялись):
+- все профили оптической толщины с шагом 10 км: 204 файла `*_TAU_10KM.TAB` (939 981 600 байт) и 204 метки `*_TAU_10KM.LBL`; затмения Rev007…Rev137 (29 витков), диапазоны S/X/K, вход (E) и выход (I);
+- для чтения: `aareadme.txt`, `errata.txt`, `voldesc.cat`, `document/archived_rss_ring_profiles_2018.pdf` и его `.LBL`.
+Всего 413 файлов, 905 МБ; sha256 каждого — в `saturn_rings/SHA256SUMS.txt`.
+
+**Не положено, решение ведущего (по размеру):** профили с шагом 1 км, `*_TAU_01KM` — 197 штук, 9 087 863 220 байт: в git не помещаются. Также не положены единичные профили с другим шагом (`TAU_1400M`, `1600M`, `3000M`, `4000M`, по 29–53 МБ) и все не-TAU файлы (DLP, CAL, GEO, Summary, browse, catalog). При нужде их берут из того же архива по sha256 выше.
 
 ## Не скачивалось (по заданию)
 Цветные мозаики Меркурия; USGS `gany_simp_2km.jpg`; Akatsuki.
