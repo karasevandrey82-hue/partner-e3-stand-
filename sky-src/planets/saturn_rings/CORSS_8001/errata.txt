@@ -1,0 +1,28 @@
+PDS_VERSION_ID                  = PDS3                               
+LABEL_REVISION_NOTE             = "M.K. GORDON, 2018-11-30,
+                                   M.K. GORDON, 2019-01-24"          
+RECORD_TYPE                     = STREAM                             
+                                                                     
+DATA_SET_ID                     = "CO-SR-RSS-4/5-OCC-V2.0"      
+                                                                     
+OBJECT                          = TEXT                               
+  PUBLICATION_DATE              = 2019-01-24                         
+  NOTE                          = "This file reports any known errors
+and describes any known deviations from PDS standards."              
+END_OBJECT                      = TEXT                               
+END                                                                  
+                                                                     
+                                                                     
+1) In the summary PDF files included in the lowest level data  
+   directories (e.g., Rev007E_RSS_2005_123_X43_E_Summary.pdf in 
+   /data/Rev007/Rev007E/Rev007E_RSS_2005_123_X43_E):
+
+   The definitions for the symbols phi_e and phi_j2k in Table 1  
+   are reversed. They should be:
+     phi_e    observed ring azimuth
+     phi_j2k  ring longitude
+
+   The reversed definition of the two symbols is limited only to Table 1 
+   of the summary pdf files. All other relevant archived figures, tables, 
+   label files, and data files are correct based on the corrected symbol 
+   definitions above.    

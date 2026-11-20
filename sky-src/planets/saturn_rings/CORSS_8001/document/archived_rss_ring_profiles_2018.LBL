@@ -1,0 +1,59 @@
+PDS_VERSION_ID                  = PDS3
+RECORD_TYPE                     = STREAM
+^PDF_DOCUMENT                   = "archived_rss_ring_profiles_2018.pdf"
+
+DATA_SET_ID                     = "CO-SR-RSS-4/5-OCC-V2.0"
+PRODUCT_ID                      = "archived_rss_ring_profiles_2018.pdf"
+PRODUCT_CREATION_TIME           = 2018-309T13:23:41
+PRODUCER_ID                     = "CASSINI RST"
+
+INSTRUMENT_HOST_NAME            = "CASSINI ORBITER"
+INSTRUMENT_HOST_ID              = CO
+INSTRUMENT_NAME                 = "RADIO SCIENCE SUBSYSTEM"
+INSTRUMENT_ID                   = RSS
+MISSION_PHASE_NAME              = "TOUR"
+TARGET_NAME                     = "S RINGS"
+
+DESCRIPTION                     = "This document provides summary of
+procedures used to calibrate and reconstruct the 2018 archived Cassini
+Radio Science optical depth and phase shift profiles of Saturn's rings.
+It's an updated version of a document provided with similar RSS ring
+products archived back in 2012. The document details the specific updates.
+The 2018 products include Ka-, X-, and S-band (0.94, 3.6, and 13
+cm-wavelength) 1 and 10 km resolution profiles reconstructed to remove
+diffraction effects for all ring occultations completed during the Cassini
+Prime and Equinox Missions (completed during the lifetime of the Cassini
+UltraStable Oscillator, or USO, which was lost in late 2011). Calibration
+and geometry files, as well as other summary information, are provided for
+each occultation as described in this document.
+
+Please address any inquiries to
+Prof. Essam Marouf,
+Electrical Engineering Department,
+San Jose State University,
+San Jose, CA 95192-0084;
+(408) 924-3969;
+essam.marouf@sjsu.edu."
+
+OBJECT                        = PDF_DOCUMENT
+  DOCUMENT_NAME               = archived_rss_ring_profiles_2018
+  DOCUMENT_TOPIC_TYPE         = "PROCESSING SUMMARY"
+  INTERCHANGE_FORMAT          = BINARY
+  DOCUMENT_FORMAT             = "ADOBE PDF"
+  FILES                       = 1
+  PUBLICATION_DATE            = 2018-11-01
+  DESCRIPTION                 = "This document provides summary of
+  procedures used to calibrate and reconstruct the 2018 archived Cassini
+  Radio Science optical depth and phase shift profiles of Saturn's rings.
+  It's an updated version of a document provided with similar RSS ring
+  products archived back in 2012. The document details the specific updates.
+  The 2018 products include Ka-, X-, and S-band (0.94, 3.6, and 13
+  cm-wavelength) 1 and 10 km resolution profiles reconstructed to remove
+  diffraction effects for all ring occultations completed during the Cassini
+  Prime and Equinox Missions (completed during the lifetime of the Cassini
+  UltraStable Oscillator, or USO, which was lost in late 2011). Calibration
+  and geometry files, as well as other summary information, are provided for
+  each occultation as described in this document."
+END_OBJECT                    = PDF_DOCUMENT
+
+END

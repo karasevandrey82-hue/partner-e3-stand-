@@ -1,0 +1,47 @@
+PDS_VERSION_ID        = PDS3
+LABEL_REVISION_NOTE   = "M.K. Gordon 2018-11-30"
+RECORD_TYPE           = STREAM
+
+OBJECT                = VOLUME
+  VOLUME_SERIES_NAME  = "CASSINI ORBITER RING OCCULTATION DATA" 
+  VOLUME_SET_NAME     = "PROCESSED RING OCCULTATION DATA"
+  VOLUME_SET_ID       = USA_NASA_PDS_CO_RSS_8001
+  VOLUMES             = 1
+  VOLUME_NAME         = "
+VOL 1: CASSINI SATURN RSS RING RADIO OCC 2005-2010"
+  VOLUME_ID           = "CORSS_8001"
+  VOLUME_FORMAT       = "ISO-9660"
+  VOLUME_VERSION_ID   = "VERSION 2.0"
+  MEDIUM_TYPE         = "ELECTRONIC"
+  DATA_SET_ID         = "CO-SR-RSS-4/5-OCC-V2.0"
+  PUBLICATION_DATE    = 2019-05-03
+  DESCRIPTION         = "This volume contains radial profiles of
+the ring system of Saturn generated from Cassini RSS radio occultation 
+observations. In each case, the data has binned to a uniform radial 
+scale and used to generate values of normal optical depth. Details 
+concerning the production of these profiles can be found in 
+Marouf et al., 1986."
+
+  OBJECT                     = DATA_PRODUCER 
+    INSTITUTION_NAME         = "SETI INSTITUTE"
+    FACILITY_NAME            = "SETI INSTITUTE"     /* PDS Rings Node */
+    FULL_NAME                = "MITCHELL K GORDON"
+    DISCIPLINE_NAME          = "RINGS"
+    ADDRESS_TEXT             = "SETI Institute
+                                189 Bernardo
+                                Mountain View, CA 94043"
+    TELEPHONE_NUMBER         = "27639398822"
+    ELECTRONIC_MAIL_TYPE     = "INTERNET"
+    ELECTRONIC_MAIL_ID       = "mgordon@seti.org"
+  END_OBJECT                 = DATA_PRODUCER
+     
+  OBJECT                     = CATALOG
+    ^MISSION_CATALOG             = "MISSION.CAT"
+    ^INSTRUMENT_HOST_CATALOG     = "INSTHOST.CAT"
+    ^INSTRUMENT_CATALOG          = "INST.CAT"
+    ^DATA_SET_CATALOG            = "DATASET.CAT"
+    ^PERSONNEL_CATALOG           = "PERSON.CAT"
+    ^REFERENCE_CATALOG           = {"REF.CAT", "PROJREF.CAT"}
+  END_OBJECT                 = CATALOG
+END_OBJECT            = VOLUME
+END
